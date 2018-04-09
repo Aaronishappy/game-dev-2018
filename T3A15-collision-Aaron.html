@@ -1,105 +1,52 @@
 <script>
 
-
-function myHitOther(my1, my2){
-
-
-   left1   = parseInt(document.getElementById(my1).style.left)
-   right1  = left1 + parseInt(document.getElementById(my1).style.width)
-   top1    = parseInt(document.getElementById(my1).style.top)   
-   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
-
-
-   left2   = parseInt(document.getElementById(my2).style.left)
-   right2  = left2 + parseInt(document.getElementById(my2).style.width)
-   top2    = parseInt(document.getElementById(my2).style.top)   
-   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
-
-
-   if ((right1  >=  left2  ) &&      	   
-       (bottom1 >=  top2   ) &&
-       (left1   <=  right2 ) &&
-       (top1    <=  bottom2) ){
-       return true
-   }
+// set the object
+function myStudent(myAge, myName, myImg){
+   this.myStudentAge = myAge
+   this.myStudentName = myName
+   this.myStudentImage = myImg
+   this.myInfo = myStudentInfo
 }
 
-
-
-
-
-
-
-
-function myMove(x, y){
-   document.getElementById('move1').style.left =  parseInt(document.getElementById('move1').style.left) + x + 'px'  
-   document.getElementById('move1').style.top =  parseInt(document.getElementById('move1').style.top) + y + 'px'  
-   if ( myHitOther('move1', 'move2') ){
-       document.getElementById('myOut1').innerHTML ='Ouch!'
-       
-   }
-   
+function myStudentInfo(){
+   document.getElementById('myDiv1').innerHTML += ' My name is ' + 
+       this.myStudentName + ' I am ' + this.myStudentAge +
+       ' years old. Here is my picture <br><img width=250 src =' + this.myStudentImage +
+       '><br><br>'
 }
 
 </script>
 
+<input type=button value="Drae Object" onclick="{
+   myDrae = new myStudent(16, 'Drae','https://cdn.meme.am/instances/48529609.jpg' )
+   myDrae.myInfo()
+}">
+<input type=button value="Sheep Object" onclick="{
+   mySheep = new myStudent(1, 'Sheep','https://media.makeameme.org/created/beep-beep-im-qj1n0h.jpg' )
+   mySheep.myInfo()
+}">
+
+<input type=button value="Art Object" onclick="{
+   myArt = new myStudent(690, 'Art','https://i.redd.it/q6lok75a3mpy.jpg' )
+   myArt.myInfo()
+}">
+
+<input type=button value="Mario Object" onclick="{
+   myMario = new myStudent(26, 'Mario','https://aff5fa4925746bf9c161-fb36f18ca122a30f6899af8eef8fa39b.ssl.cf5.rackcdn.com/images/Masthead_mario.17345b1513ac044897cfc243542899dce541e8dc.9afde10b.png' )
+   myMario.myInfo()
+}">
+
+<input type=button value="Leon Trotsky Object" onclick="{
+   myLeonTrotsky = new myStudent(138, 'Leon Trotsky','https://zionistreport.com/wp-content/uploads/2016/04/Trotsky-1.jpg' )
+   myLeonTrotsky.myInfo()
+}">
+
+<input type=button value="The Scream Object" onclick="{
+   myScream = new myStudent(124, 'The Scream','https://i.redd.it/nbmdr1et7wpy.gif' )
+   myScream.myInfo()
+}">
 
 
+<div id="myDiv1">output here</div>
 
 
-
-<body onMouseMove="{
-   document.getElementById('myOut1').innerHTML = 'x='+event.screenX+', y='+ event.screenY
-}"
-
-
-onkeydown="{
-  document.getElementById('myOut1').innerHTML = String.fromCharCode(event.keyCode) + ' = ' + event.keyCode
-  
-  if (String.fromCharCode(event.keyCode).toUpperCase() == 'D'){ myMove(3,0) }
- 
-  if (event.keyCode == 65){ myMove(-3,0) } // for arrow keys
-  
-   if (event.keyCode == 87){ myMove(0,-3) } // for arrow keys
-   
-    if (event.keyCode == 83){ myMove(0,3) } // for arrow keys
-    
-    
-    
-    document.getElementById('move2').innerHTML = String.fromCharCode(event.keyCode) + ' = ' + event.keyCode
-  
-  if (String.fromCharCode(event.keyCode).toUpperCase() == 'L'){ document.getElementById('move2').style.left  = parseInt(document.getElementById('move2').style.left)+5+'px'; checkAll();}   // small 'L' key go right
- 
- 
-  if (String.fromCharCode(event.keyCode).toUpperCase() == 'J'){ document.getElementById('move2').style.left  = parseInt(document.getElementById('move2').style.left)-5+'px'; checkAll();}   // small 'J' key go left
- 
-
-  if (String.fromCharCode(event.keyCode).toUpperCase() == 'I'){ document.getElementById('move2').style.top  = parseInt(document.getElementById('move2').style.top)-5+'px'; checkAll();}   // small 'I' key go up
- 
-  
-  if (String.fromCharCode(event.keyCode).toUpperCase() == 'K'){ document.getElementById('move2').style.top  = parseInt(document.getElementById('move2').style.top)+5+'px'; checkAll();}   // small 'K' key go down
-  
- 
- 
- 
- 
-  }">
-
-    
-
-
-<img  id="move1"  src="https://vignette.wikia.nocookie.net/slimerancher/images/4/4d/Sanic.png/revision/latest?cb=20170328013801"  style="position:absolute; width:70px; height:70px; left:40px; top:50px" />  
- 
-<img  id="move2"  src="http://www.pngmart.com/files/2/Flash-PNG-Photos.png" style="position:absolute; width:70px; height:70px;  left:150px; top:40px;" />
-
-
-<br><br><br><br><br><br><br><br>
-<div id="myOut1">Use Arrow Keys </div>
-
-
-</body>
-
-
-
-
-<body style="background-color:grey;">
