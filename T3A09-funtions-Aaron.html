@@ -1,38 +1,63 @@
-<h2 aling=center>Funtions by Aaron</h2>
-
-
+<h2 align=center>Functions by Drae </h2>
 <script>
-function myGuardian(myX) {
-
-alert('your ' + myX + are dirty')
-
+function myGaurdian(myX){
+    
+    document.getElementById('myDiv01').innerHTML +=
+    ( myX + '<br>')
+    
 }
+
+
+
 
 </script>
 
-<input type=button value=myFunction onclick="{
-    myGuardian('socks')
-
-}'>
-
-
-<input type=button value="where are my shoes"
-
-
-
-<input type=button value=myotherButton onclick="{
-myGuardian('shoes')
-
-
-
-
-<input type=button value="inline functions" onclick="{
-(funtions () {
-  alert('incline work')
-
-
-
-
-
-
+<input type=button value="where is your family?" onclick="{
+     myGaurdian('my parents are dead')
 }">
+
+
+
+<input type=button value="what is your name?" onclick="{
+     myGaurdian('bruce wayne')
+}">
+
+
+<input type=button value="do you have alot of money?" onclick="{
+   
+     myGaurdian('its my super power')
+ 
+}">
+
+<input type=button value="where did you dissapear to for 5 years?" onclick="{
+   
+   
+    myGaurdian('i was away on business')
+    
+ }">
+
+<input type=button value="what are you doing tonight" onclick="{
+   
+     myGaurdian('going out')
+ 
+}">
+
+<input type=button value="are you batman?" onclick="{
+   
+     myGaurdian('probably not')
+   
+}">
+
+<input type=button value="youre batman" onclick="{
+   
+     myGaurdian('no im not')
+   
+}">
+
+<input type=button value="i know youre batman" onclick="{
+   
+     myGaurdian('okay im batman')
+   
+}">
+
+<div id="myDiv01">...</div>
