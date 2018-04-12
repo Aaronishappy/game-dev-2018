@@ -1,7 +1,23 @@
 <style>
+<body  onkeypress="{
+  document.getElementById('myOut1').innerHTML = String.fromCharCode(event.keyCode) + ' = ' + event.keyCode
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'D'){ myMove(10,0) }
   
-body {
-    background: url(http://backgroundcheckall.com/wp-content/uploads/2017/12/seamless-repeating-background-gif-10.gif) repeat;
+    document.getElementById('myOut1').innerHTML = String.fromCharCode(event.keyCode) + ' = ' + event.keyCode
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'W'){ myMove(0,-10) }
+  
+    document.getElementById('myOut1').innerHTML = String.fromCharCode(event.keyCode) + ' = ' + event.keyCode
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'A'){ myMove(-10,0) }
+  
+    document.getElementById('myOut1').innerHTML = String.fromCharCode(event.keyCode) + ' = ' + event.keyCode
+  if (String.fromCharCode(event.keyCode).toUpperCase() == 'S'){ myMove(0,10) }
+  
+  }">
+
+
+<img  id="move1"  src="http://media.giphy.com/media/ZOTcjZ0Cw5Wz6/giphy.gif"  style="position:absolute; width:50px; height:50px; left:100px; top:40px" />    
+
+ background: url(http://backgroundcheckall.com/wp-content/uploads/2017/12/seamless-repeating-background-gif-10.gif) repeat;
     
 
 
