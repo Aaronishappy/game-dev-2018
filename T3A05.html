@@ -1,45 +1,31 @@
-function findFlights()
-    {
-    var yourDestination = readTheDestination();
-    var yourAirline = readTheAirline();
-    var yourFare = readTheFare();
 
+<html>
+<head />
+<body> 
 
-    if (yourDestination == 'Choose your destination')
-        {
-        displayMessage('<B>Please choose a destination city from the Destination menu and then click Find flights again.</B>');
-        }
-    else
-        {
-        var destinationTime, destinationOperator, destinationFare;
-        var message = '<B>You asked about flights to ' + yourDestination + '</B><BR>' + "";
+<script type="text/javascript">
+function checkNumber () {
+var n = prompt("Enter a number", "5");
+var entered = "You entered a number between";
 
-        for (var i=0; i < flightTimes.length; i++)                      //flight destinations
-        {
-        if    // statement                                              // IF flight:
-           ((flightDestinations[i] == yourDestination &&                // destination = selected destination &
-            yourAirline == 'Any airline' &&                             // airline = any airline &
-            yourFare == 'Any price'))                                    // fare <= chosen fare
-            ||                                                          // OR
-           (flightDestinations[i] == yourDestination &&                // destination = selected destination &
-           yourAirline == flightOperators[i] &&                        // airline = chosen airline &
-           yourFare <= flightFares[i]))                                // fare <= chosen fare
+if (n >= 1 && n < 10)                  
+  {alert(entered + " 0 and 10")}
+else if (n >= 10 && n < 20)
+  {alert(entered + " 9 and 20")}
+else if (n >= 20 && n < 30)
+  {alert(entered + " 19 and 30")}
+else if (n >= 30 && n < 40)
+  {alert(entered + " 29 and 40")}
+else if (n >= 40 && n <= 100)
+  {alert(entered + " 39 and 100")}
+else if (n < 1 || n > 100)
+  {alert("You entered a number less than 1 or greater than 100")}
+else
+  {alert("You did not enter a number!")}
+}
 
-            {
-            destinationTime = flightTimes[i];
-            destinationOperator = flightOperators[i];
-            destinationFare = flightFares[i];
+checkNumber();
+</script>
 
-
-
-            message += destinationTime + ' ' + destinationOperator + '. £' + destinationFare + '<BR>';
-            displayMessage(message);
-
-            }
-        }
-        else if (flightDestinations[i] == yourDestination && 
-                flightOperators[i] != yourAirline && 
-                flightFares[i] != yourFare)
-            {
-            displayMessage('There are no flights to ' + yourDestination + ' with ' + yourAirline + '. Please select Any Airline and try again.');
-            }
+</body>
+</html>
