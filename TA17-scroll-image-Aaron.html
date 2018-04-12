@@ -94,6 +94,67 @@ background-position: 0;
 background-position: -1600px 0;
   }
 }
+ 
+ 
+ </style>
 
-</style>
+<script type="text/javascript">
+
+            function leftArrowPressed() {
+                var element = document.getElementById("image1");
+                element.style.left = parseInt(element.style.left) - 75 + 'px';
+            }
+
+            function rightArrowPressed() {
+                var element = document.getElementById("image1");
+                element.style.left = parseInt(element.style.left) + 75 + 'px';
+            }
+
+            function upArrowPressed() {
+                var element = document.getElementById("image1");
+                element.style.top = parseInt(element.style.top) - 75 + 'px';
+            }
+
+            function downArrowPressed() {
+                var element = document.getElementById("image1");
+                element.style.top = parseInt(element.style.top) + 75 + 'px';
+            }
+
+            function moveSelection(event) {                    
+                switch (event.keyCode) {
+                    case 37:
+                        leftArrowPressed();
+                    break;
+
+                    case 39:
+                        rightArrowPressed();
+                    break;
+
+                    case 38:
+                        upArrowPressed();
+                    break;
+
+                    case 40:
+                        downArrowPressed();
+                    break;
+                }
+            };
+
+        function gameLoop()
+        {
+            // change position based on speed
+            moveSelection();
+            setTimeout("gameLoop()",10);
+        }
+
+  </script>
+  </head>
+
+  <body onload="gameLoop();" onkeydown="" onkeyup="moveSelection(event)" bgcolor='yellow'>
+   t3a17-scroll-image.
+  <img id="image1" src="https://starbounder.org/mediawiki/images/1/10/Ufo300%25.gif" style="position: absolute; left: 15; right: 15; top: 90; bottom: auto; " height="100" width="150">
+  </body>
+Use arrow keys
+</html>
+
 
