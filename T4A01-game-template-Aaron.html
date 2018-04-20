@@ -26,7 +26,7 @@ myBgSpeedXright = 0; // speed moving right
 
 // myScroll function controls the moving of the background image
 
-function myScroll(http://backgroundcheckall.com/wp-content/uploads/2017/12/seamless-repeating-background-gif-10.gif) {
+function myScroll() {
     
 myAuto()
 
@@ -206,11 +206,15 @@ document.getElementById('bullet1').style.left = parseInt(document.getElementById
 
 <!-- ******************** onkeypress just for webpages is useless on mobile apps ************************** -->
 
-<body background="myBackPic.png" onload="myTimer = setInterval('myScroll()', 100)" onkeypress="{
+<body background="https://media.pixcove.com/Z/4/8/Milky-Way-Universe-Space-Free-Image-Night-Sky-Star-8224.jpg" onload="myTimer = setInterval('myScroll()', 100)" onkeypress="{
 
 if(event.keyCode==97){ document.getElementById('move1').style.left = parseInt(document.getElementById('move1').style.left)-5+'px'} // small 'a' key go left
 
 if(event.keyCode==119){ document.getElementById('move1').style.top = parseInt(document.getElementById('move1').style.top)-5+'px'} // small 'w' key go up
+
+if(event.keyCode==119){ document.getElementById('move1').style.top = parseInt(document.getElementById('move1').style.bottom)-5+'px'} // small 's' key go down
+
+if(event.keyCode==119){ document.getElementById('move1').style.top = parseInt(document.getElementById('move1').style.right)-5+'px'} // small 'd' key go right
 
 }">
 
@@ -220,7 +224,7 @@ myBgObject = eval('document.body');
 
 </script>
 
-<h2 align=center style="background-color:yellow"> Game Base by ___Your Name Here ___</h2>
+<h2 align=center style="background-color:yellow"> Game Base by Aaron</h2>
 
 <!-- ******************** Some instructions that magically disappear ************************** -->
 
@@ -250,13 +254,13 @@ Click to hide.
 
 <!-- ******************** Following should be all your images ************************** -->
 
-<img id="move1" src="myMove1Pic.png" style="position:absolute; width:30px; height:30px; left:30px; top:250px" onClick="myGunPrep()">
+<img id="move1" src="http://pixelartmaker.com/art/d9c710d4c7e1ae6.png" style="position:absolute; width:30px; height:30px; left:30px; top:250px" onClick="myGunPrep()">
 
-<img id="move2" src="myMove2Pic.png" style="position:absolute; width:30px; height:30px; left:500px; top:240px;"/>
+<img id="move2" src="https://pre00.deviantart.net/90e8/th/pre/i/2014/142/4/7/spaceship_with_alien_pixel_art_by_lazerlars-d7ja124.png" style="position:absolute; width:30px; height:30px; left:500px; top:240px;"/>
 
 <input type=button value="Fire" onClick="myGunPrep()">
 
-<img id="bullet1" src="myBulletPic.png" style="position:absolute; width:10px; height:10px; left:500px; top:240px; visibility:hidden"/>
+<img id="bullet1" src="https://vignette.wikia.nocookie.net/pixel-brains-enemies/images/c/cd/8bit_bullet_bill_by_chupacabrathing-d4qbgob.png/revision/latest?cb=20150322063722" style="position:absolute; width:10px; height:10px; left:500px; top:240px; visibility:hidden"/>
 
 <!-- ******************** This is the silly little dot the main object hits ************************** -->
 
