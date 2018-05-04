@@ -1,0 +1,659 @@
+<html>
+<head>
+<title>Game base for Android and Apple</title>
+
+<script> 
+
+
+myBgPosY = 0;     // present vertical position
+myBgPosX = 0;    // present horizonal position
+myBgHeight = 1800;    // height of background image
+myBgWidth = 2880;  // width of background image
+myBgSpeedYdown = 0;    // speed moving down 
+myBgSpeedXright = 1;    // speed moving right
+move2SpeedYright= 1;
+
+
+<!-- ********************  Background Scrolling **************************  -->
+
+
+
+function myScroll() {
+
+   myAuto()
+   checkAll()
+
+
+   myBgPosY +=  myBgSpeedYdown;
+   if (myBgPosY > myBgHeight) {myBgPosY = 0}
+   if (myBgPosY <0) {myBgPosY = myBgHeight}
+
+   myBgPosX +=  myBgSpeedXright;
+   if (myBgPosX > myBgWidth) {myBgPosX = 0}
+   if (myBgPosX <0) {myBgPosX = myBgWidth}
+
+
+   myBgObject.style.backgroundPosition = myBgPosX+" " + myBgPosY;
+}
+
+
+function myLose(){
+'<b><text style="height: 500px; width: 400px;font-size:75px;position: fixed;top: 50%; left: 50%; margin-top: -100px;margin-left: -200px;" />You Lose</b>'
+}
+
+
+function myHitXY(my1,X,Y){
+
+   left1  = parseInt(document.getElementById(my1).style.left)
+   right1   = left1 + parseInt(document.getElementById(my1).style.width)
+
+   top1    = parseInt(document.getElementById(my1).style.top)   
+   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
+
+
+   if ((left1   <= X ) &&      	   
+       (right1  >= X ) &&
+       (top1    <= Y ) &&
+       (bottom1 >= Y ) ){
+       return true
+   }
+}
+
+
+function myHitOther(my1,my2){
+
+   left1   = parseInt(document.getElementById(my1).style.left)
+   right1  = left1 + parseInt(document.getElementById(my1).style.width)
+   top1    = parseInt(document.getElementById(my1).style.top)   
+   bottom1 = top1   + parseInt(document.getElementById(my1).style.height)
+
+
+   left2   = parseInt(document.getElementById(my2).style.left)
+   right2  = left2 + parseInt(document.getElementById(my2).style.width)
+   top2    = parseInt(document.getElementById(my2).style.top)   
+   bottom2 = top2   + parseInt(document.getElementById(my2).style.height)
+
+   if ((right1  >=  left2  ) &&      	   
+       (bottom1 >=  top2   ) &&
+       (left1   <=  right2 ) &&
+       (top1    <=  bottom2) ){
+       return true
+   }
+}
+
+ 
+function checkAll(){
+
+ 
+  if (myHitOther('move1','move2')) {
+    location.reload()
+      
+  }
+   if (myHitOther('move1','move3')) {
+    location.reload()
+      
+  }
+    if (myHitOther('move1','move4')) {
+    location.reload()
+      
+  }
+  if (myHitOther('move1','move5')) {
+    location.reload()
+      
+  }
+  if (myHitOther('move1','move5')) {
+    location.reload()
+      
+  }
+  if (myHitOther('move1','move6')) {
+    location.reload()
+      
+  }
+  if (myHitOther('move1','move7')) {
+    location.reload()
+      
+  }
+  if (myHitOther('move1','move8')) {
+    location.reload()
+      
+  }
+  if (myHitOther('move1','move9')) {
+    location.reload()
+      
+  }
+  if (myHitOther('move1','move10')) {
+    location.reload()
+      
+  }
+   if (myHitOther('move1','move11')) {
+    location.reload()
+      
+  }
+  if (myHitOther('bullet1','move2')) {
+      document.getElementById('bullet1').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+      document.getElementById('move2').style.left  = '-1800px'
+      document.getElementById('move2').style.top  = '-1800px'
+      document.getElementById('myShowDiv4').innerHTML ++ +1
+      myBgSpeedXright += 1
+  }
+if (myHitOther('bullet1','move3')) {
+      document.getElementById('bullet1').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+      document.getElementById('move3').style.left  = '-700px'
+      document.getElementById('move3').style.top  = '-700px'
+      document.getElementById('myShowDiv4').innerHTML ++ +1
+      myBgSpeedXright += 1
+  }
+  if (myHitOther('bullet1','move4')) {
+      document.getElementById('bullet1').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+      document.getElementById('move4').style.left  = '-700px'
+      document.getElementById('move4').style.top  = '-700px'
+      document.getElementById('myShowDiv4').innerHTML ++ +1
+  }
+  if (myHitOther('bullet1','move5')) {
+      document.getElementById('bullet1').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+      document.getElementById('move5').style.left  = '-700px'
+      document.getElementById('move5').style.top  = '-700px'
+      document.getElementById('myShowDiv4').innerHTML ++ +1
+      myBgSpeedXright += 1
+  }
+  if (myHitOther('bullet1','move6')) {
+      document.getElementById('bullet1').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+      document.getElementById('move6').style.left  = '-700px'
+      document.getElementById('move6').style.top  = '-700px'
+      document.getElementById('myShowDiv4').innerHTML ++ +1
+      myBgSpeedXright += 1
+  }
+  if (myHitOther('bullet1','move7')) {
+      document.getElementById('bullet1').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+      document.getElementById('move7').style.left  = '-700px'
+      document.getElementById('move7').style.top  = '-700px'
+     document.getElementById('myShowDiv4').innerHTML ++ +1 
+     myBgSpeedXright += 1
+  }
+  if (myHitOther('bullet1','move8')) {
+      document.getElementById('bullet1').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+      document.getElementById('move8').style.left  = '-700px'
+      document.getElementById('move8').style.top  = '-700px'
+     document.getElementById('myShowDiv4').innerHTML ++ +1 
+     myBgSpeedXright += 1
+  } 
+  if (myHitOther('bullet1','move9')) {
+      document.getElementById('bullet1').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+      document.getElementById('move9').style.left  = '-700px'
+      document.getElementById('move9').style.top  = '-700px'
+     document.getElementById('myShowDiv4').innerHTML ++ +1 
+     myBgSpeedXright += 1
+  } 
+  if (myHitOther('bullet1','move10')) {
+      document.getElementById('bullet1').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+      document.getElementById('move10').style.left  = '-700px'
+      document.getElementById('move10').style.top  = '-700px'
+     document.getElementById('myShowDiv4').innerHTML ++ +1 
+     
+    // alert(document.getElementById('myShowDiv4').innerHTML  )
+     myBgSpeedXright += 1
+  } 
+  if (myHitOther('bullet1','move7')) {
+      document.getElementById('bullet1').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+      document.getElementById('move10').style.left  = '-700px'
+      document.getElementById('move10').style.top  = '-700px'
+     document.getElementById('myShowDiv4').innerHTML ++ +1 
+     
+    // alert(document.getElementById('myShowDiv4').innerHTML  )
+     
+     myBgSpeedXright += 1
+  } 
+  if (myHitOther('bullet1','move11')) {
+      document.getElementById('bullet1').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+      document.getElementById('move11').style.left  = '-700px'
+      document.getElementById('move11').style.top  = '-700px'
+     document.getElementById('myShowDiv4').innerHTML ++ +1 
+     //alert(document.getElementById('myShowDiv4').innerHTML  )
+
+     myBgSpeedXright += 1
+  }
+  
+  if (document.getElementById('myShowDiv4').innerHTML >= 10){
+      document.getElementById('myShowDiv4').innerHTML = 0
+     document.location = 'T4CONSTRUCT2'
+      
+  }
+  
+  
+  
+  
+}
+    
+    
+function getRandom(min, max) {
+  return Math.floor(Math.random() * (5 - -5)) + -5;
+}
+
+
+
+document.mySpeedX = Math.floor(Math.random()*10);
+document.mySpeedY = Math.floor(Math.random()*10);
+document.mySpeedX1 = Math.floor(Math.random()*10);
+document.mySpeedY1 = Math.floor(Math.random()*10);
+document.mySpeedX2 = Math.floor(Math.random()*10);
+document.mySpeedY2 = Math.floor(Math.random()*10);
+document.mySpeedX3 = Math.floor(Math.random()*10);
+document.mySpeedY3 = Math.floor(Math.random()*10);
+document.mySpeedX4 = Math.floor(Math.random()*10);
+document.mySpeedY4 = Math.floor(Math.random()*10);
+document.mySpeedX5 = Math.floor(Math.random()*10);
+document.mySpeedY5 = Math.floor(Math.random()*10);
+document.mySpeedX6 = Math.floor(Math.random()*10);
+document.mySpeedY6 = Math.floor(Math.random()*10);
+document.mySpeedX7 = Math.floor(Math.random()*10);
+document.mySpeedY7 = Math.floor(Math.random()*10);
+document.mySpeedX8 = Math.floor(Math.random()*10);
+document.mySpeedY8 = Math.floor(Math.random()*10);
+document.mySpeedX9 = Math.floor(Math.random()*10);
+document.mySpeedY9 = Math.floor(Math.random()*10);
+function myAuto(){
+ 
+    if(parseInt(document.getElementById('move2').style.left) > window.innerWidth - document.getElementById('move2').width){
+       document.mySpeedX *= -1
+   }
+    if(parseInt(document.getElementById('move2').style.left) < 5){
+       document.mySpeedX *= -1
+   }
+    if(parseInt(document.getElementById('move2').style.top) < 5){
+       document.mySpeedY *= -1
+   }
+    if(parseInt(document.getElementById('move2').style.top) > window.innerHeight - document.getElementById('move2').height){
+       document.mySpeedY *= -1
+   }
+  document.getElementById('move2').style.left = parseInt(document.getElementById('move2').style.left)+document.mySpeedX+ 'px'
+  document.getElementById('move2').style.top  = parseInt(document.getElementById('move2').style.top)+document.mySpeedY+ 'px'
+
+    if(parseInt(document.getElementById('move3').style.left) > window.innerWidth - document.getElementById('move3').width){
+       document.mySpeedX1 *= -1
+   }
+    if(parseInt(document.getElementById('move3').style.left) < 5){
+       document.mySpeedX1 *= -1
+   }
+    if(parseInt(document.getElementById('move3').style.top) < 5){
+       document.mySpeedY1 *= -1
+   }
+    if(parseInt(document.getElementById('move3').style.top) > window.innerHeight - document.getElementById('move3').height){
+       document.mySpeedY1 *= -1
+   }
+  document.getElementById('move3').style.left = parseInt(document.getElementById('move3').style.left)+document.mySpeedX1+ 'px'
+  document.getElementById('move3').style.top  = parseInt(document.getElementById('move3').style.top)+document.mySpeedY1+ 'px'
+
+if(parseInt(document.getElementById('move4').style.left) > window.innerWidth - document.getElementById('move4').width){
+       document.mySpeedX2 *= -1
+   }
+    if(parseInt(document.getElementById('move4').style.left) < 5){
+       document.mySpeedX2 *= -1
+   }
+    if(parseInt(document.getElementById('move4').style.top) < 5){
+       document.mySpeedY2 *= -1
+   }
+    if(parseInt(document.getElementById('move4').style.top) > window.innerHeight - document.getElementById('move4').height){
+       document.mySpeedY2 *= -1
+   }
+  document.getElementById('move4').style.left = parseInt(document.getElementById('move4').style.left)+document.mySpeedX2+ 'px'
+  document.getElementById('move4').style.top  = parseInt(document.getElementById('move4').style.top)+document.mySpeedY2+ 'px'
+
+    if(parseInt(document.getElementById('move5').style.left) > window.innerWidth - document.getElementById('move5').width){
+       document.mySpeedX3 *= -1
+   }
+    if(parseInt(document.getElementById('move5').style.left) < 5){
+       document.mySpeedX3 *= -1
+   }
+    if(parseInt(document.getElementById('move5').style.top) < 5){
+       document.mySpeedY3 *= -1
+   }
+    if(parseInt(document.getElementById('move5').style.top) > window.innerHeight - document.getElementById('move5').height){
+       document.mySpeedY3 *= -1
+   }
+  document.getElementById('move5').style.left = parseInt(document.getElementById('move5').style.left)+document.mySpeedX3+ 'px'
+  document.getElementById('move5').style.top  = parseInt(document.getElementById('move5').style.top)+document.mySpeedY3+ 'px'
+
+    if(parseInt(document.getElementById('move6').style.left) > window.innerWidth - document.getElementById('move6').width){
+       document.mySpeedX4 *= -1
+   }
+    if(parseInt(document.getElementById('move6').style.left) < 5){
+       document.mySpeedX4 *= -1
+   }
+    if(parseInt(document.getElementById('move6').style.top) < 5){
+       document.mySpeedY4 *= -1
+   }
+    if(parseInt(document.getElementById('move6').style.top) > window.innerHeight - document.getElementById('move6').height){
+       document.mySpeedY4 *= -1
+   }
+  document.getElementById('move6').style.left = parseInt(document.getElementById('move6').style.left)+document.mySpeedX4+ 'px'
+  document.getElementById('move6').style.top  = parseInt(document.getElementById('move6').style.top)+document.mySpeedY4+ 'px'
+
+    if(parseInt(document.getElementById('move7').style.left) > window.innerWidth - document.getElementById('move7').width){
+       document.mySpeedX5 *= -1
+   }
+    if(parseInt(document.getElementById('move7').style.left) < 5){
+       document.mySpeedX5 *= -1
+   }
+    if(parseInt(document.getElementById('move7').style.top) < 5){
+       document.mySpeedY5 *= -1
+   }
+    if(parseInt(document.getElementById('move7').style.top) > window.innerHeight - document.getElementById('move7').height){
+       document.mySpeedY5 *= -1
+   }
+  document.getElementById('move7').style.left = parseInt(document.getElementById('move7').style.left)+document.mySpeedX5+ 'px'
+  document.getElementById('move7').style.top  = parseInt(document.getElementById('move7').style.top)+document.mySpeedY5+ 'px'
+ 
+     if(parseInt(document.getElementById('move8').style.left) > window.innerWidth - document.getElementById('move8').width){
+       document.mySpeedX6 *= -1
+   }
+    if(parseInt(document.getElementById('move8').style.left) < 5){
+       document.mySpeedX6 *= -1
+   }
+    if(parseInt(document.getElementById('move8').style.top) < 5){
+       document.mySpeedY6 *= -1
+   }
+    if(parseInt(document.getElementById('move8').style.top) > window.innerHeight - document.getElementById('move8').height){
+       document.mySpeedY6 *= -1
+   }
+  document.getElementById('move8').style.left = parseInt(document.getElementById('move8').style.left)+document.mySpeedX6+ 'px'
+  document.getElementById('move8').style.top  = parseInt(document.getElementById('move8').style.top)+document.mySpeedY6+ 'px'
+    if(parseInt(document.getElementById('move9').style.left) > window.innerWidth - document.getElementById('move9').width){
+       document.mySpeedX7 *= -1
+   }
+    if(parseInt(document.getElementById('move9').style.left) < 5){
+       document.mySpeedX7 *= -1
+   }
+    if(parseInt(document.getElementById('move9').style.top) < 5){
+       document.mySpeedY7 *= -1
+   }
+    if(parseInt(document.getElementById('move9').style.top) > window.innerHeight - document.getElementById('move9').height){
+       document.mySpeedY7 *= -1
+   }
+  document.getElementById('move9').style.left = parseInt(document.getElementById('move9').style.left)+document.mySpeedX7+ 'px'
+  document.getElementById('move9').style.top  = parseInt(document.getElementById('move9').style.top)+document.mySpeedY7+ 'px'
+    if(parseInt(document.getElementById('move10').style.left) > window.innerWidth - document.getElementById('move10').width){
+       document.mySpeedX8 *= -1
+   }
+    if(parseInt(document.getElementById('move10').style.left) < 5){
+       document.mySpeedX8 *= -1
+   }
+    if(parseInt(document.getElementById('move10').style.top) < 5){
+       document.mySpeedY8 *= -1
+   }
+    if(parseInt(document.getElementById('move10').style.top) > window.innerHeight - document.getElementById('move10').height){
+       document.mySpeedY8 *= -1
+   }
+  document.getElementById('move10').style.left = parseInt(document.getElementById('move10').style.left)+document.mySpeedX8+ 'px'
+  document.getElementById('move10').style.top  = parseInt(document.getElementById('move10').style.top)+document.mySpeedY8+ 'px'
+    if(parseInt(document.getElementById('move11').style.left) > window.innerWidth - document.getElementById('move11').width){
+       document.mySpeedX9 *= -1
+   }
+    if(parseInt(document.getElementById('move11').style.left) < 5){
+       document.mySpeedX9 *= -1
+   }
+    if(parseInt(document.getElementById('move11').style.top) < 5){
+       document.mySpeedY9 *= -1
+   }
+    if(parseInt(document.getElementById('move11').style.top) > window.innerHeight - document.getElementById('move11').height){
+       document.mySpeedY9 *= -1
+   }
+  document.getElementById('move11').style.left = parseInt(document.getElementById('move11').style.left)+document.mySpeedX9+ 'px'
+  document.getElementById('move11').style.top  = parseInt(document.getElementById('move11').style.top)+document.mySpeedY9+ 'px'
+
+if(parseInt(document.getElementById('bullet1').style.left) > window.innerWidth - document.getElementById('bullet1').width){
+        document.getElementById('bullet1').style.visibility  = 'hidden'
+      document.getElementById('bullet1').style.left  = '-200px'
+      clearInterval(document.myShot)
+}
+
+}
+
+
+function myGunPrep(){
+
+    document.getElementById('bullet1').style.visibility  = 'visible'
+    document.getElementById('bullet1').style.left  = document.getElementById('move1').style.left
+    document.getElementById('bullet1').style.top   = document.getElementById('move1').style.top
+    
+   clearInterval(document.myShot)
+   document.myShot = setInterval('myGun()', 30) // calls the function every 30 mille seconds
+
+}
+
+
+function myGun(){
+
+    document.getElementById('bullet1').style.left  = parseInt(document.getElementById('bullet1').style.left) + 20 + 'px'
+
+}
+
+
+</script>
+
+</head>
+
+
+<body bgcolor=MistyRose onkeydown="{
+
+if (String.fromCharCode(event.keyCode)=='D'){
+    document.getElementById('myD').click()}
+   else if (String.fromCharCode(event.keyCode)=='W'){
+        document.getElementById('myW').click() }
+        else if (String.fromCharCode(event.keyCode)=='S'){
+            document.getElementById('myS').click() }
+               else if (String.fromCharCode(event.keyCode)=='A'){
+                    document.getElementById('myA').click() }
+                        else if (String.fromCharCode(event.keyCode)=='C'){
+                        document.getElementById('myC').click() }
+                            else if (String.fromCharCode(event.keyCode)=='Q'){
+                            document.getElementById('myQ').click() }
+                                else if (String.fromCharCode(event.keyCode)=='Z'){
+                                document.getElementById('myZ').click() }
+                                    else if (String.fromCharCode(event.keyCode)=='E'){
+                                    document.getElementById('myE').click() }
+                                        else if (String.fromCharCode(event.keyCode)==' '){
+                                        document.getElementById('myfire').click() }
+                                    
+                                 
+                                    
+}"> 
+
+
+
+
+
+
+
+<body border=200 background="myBackPic.png" onload="myTimer = setInterval('myScroll()', 100)">
+
+
+<script>      
+
+myBgObject = eval('document.body');
+
+</script>
+
+
+<h2 align=center  style="background-color:MistyRose"> Game Base by Taylor</h2>
+
+
+
+
+
+
+<img  id="move1"  src="myMove1Pic.png" style="position:absolute; width:50px; height:30px; left:30px; top:250px" onClick="myGunPrep()">  
+<img  id="move2"  src="myMove2Pic.png" style="position:absolute; width:50px; height:50px;  left:500px; top:540px;"/>
+<img  id="move3"  src="myMove2Pic.png" style="position:absolute; width:50px; height:50px;  left:700px; top:240px;"/>
+<img  id="move4"  src="myMove2Pic.png" style="position:absolute; width:50px; height:50px;  left:200px; top:540px;"/>
+<img  id="move5"  src="myMove2Pic.png" style="position:absolute; width:50px; height:50px;  left:300px; top:800px;"/>
+<img  id="move6"  src="myMove2Pic.png" style="position:absolute; width:50px; height:50px;  left:600px; top:460px;"/>
+<img  id="move7"  src="myMove2Pic.png" style="position:absolute; width:50px; height:50px;  left:330px; top:147px;"/>
+<img  id="move8"  src="myMove2Pic.png" style="position:absolute; width:50px; height:50px;  left:600px; top:800px;"/>
+<img  id="move9"  src="myMove2Pic.png" style="position:absolute; width:50px; height:50px;  left:450px; top:850px;"/>
+<img  id="move10"  src="myMove2Pic.png" style="position:absolute; width:50px; height:50px;  left:120px; top:347px;"/>
+<img  id="move11"  src="myMove2Pic.png" style="position:absolute; width:50px; height:50px;  left:870px; top:837px;"/>
+
+<input type=button style="color:DarkSeaGreen; background-color: black" id="myfire" value="Fire" onClick="myGunPrep()">
+
+
+<img  id="bullet1" src="myBulletPic.png" style="position:absolute; width:10px; height:10px;  left:500px; top:240px; visibility:hidden"/>
+
+
+<input type=button style="color:DarkSeaGreen; background-color: black" value="BG Faster Down" onClick="myBgSpeedYdown += 1">
+
+<input type=button style="color:DarkSeaGreen; background-color: black" value="Bg Faster Right" onClick="myBgSpeedXright += 1">
+
+<input type=button style="color:DarkSeaGreen; background-color: black" id="myD" value="Right 'D'" onclick= "{
+
+document.getElementById('move1').style.left = 
+    parseInt(document.getElementById('move1').style.left) + 9
+
+}">
+
+<input type=button style="color:DarkSeaGreen; background-color: black" id="myW" value="Up 'W'" onclick= "{
+
+document.getElementById('move1').style.top = 
+    parseInt(document.getElementById('move1').style.top) + -9
+
+}">
+
+<input type=button style="color:DarkSeaGreen; background-color: black" id="myA" value="Left 'A'" onclick= "{
+
+document.getElementById('move1').style.left = 
+    parseInt(document.getElementById('move1').style.left) + -9
+
+}">
+
+<input type=button style="color:DarkSeaGreen; background-color: black" id="myS" value="Down 'S'" onclick= "{
+
+document.getElementById('move1').style.top = 
+    parseInt(document.getElementById('move1').style.top) + 9
+
+}">
+
+<input type=button style="color:DarkSeaGreen; background-color: black" id="myC" value="Down Right Angle 'C'" onclick= "{
+
+document.getElementById('move1').style.top = 
+    parseInt(document.getElementById('move1').style.top) + 9
+
+document.getElementById('move1').style.left = 
+    parseInt(document.getElementById('move1').style.left) + 9
+}">
+
+<input type=button style="color:DarkSeaGreen; background-color: black" id="myQ" value="Up Left Angle 'Q'" onclick= "{
+
+document.getElementById('move1').style.top = 
+    parseInt(document.getElementById('move1').style.top) + -9
+
+document.getElementById('move1').style.left = 
+    parseInt(document.getElementById('move1').style.left) + -9
+}">
+
+<input type=button style="color:DarkSeaGreen; background-color: black" id="myE" value="Up Right Angle 'E'" onclick= "{
+
+document.getElementById('move1').style.top = 
+    parseInt(document.getElementById('move1').style.top) + -9
+
+document.getElementById('move1').style.left = 
+    parseInt(document.getElementById('move1').style.left) + 9
+}">
+
+<input type=button style="color:DarkSeaGreen; background-color: black" id="myZ" value="Down Left Angle 'Z'" onclick= "{
+
+document.getElementById('move1').style.top = 
+    parseInt(document.getElementById('move1').style.top) + 9
+
+document.getElementById('move1').style.left = 
+    parseInt(document.getElementById('move1').style.left) + -9
+}">
+
+
+
+
+<input type=button style="color:DarkSeaGreen; background-color: black" value="Step Down Move2" onload="{
+    document.getElementById('move2').style.top  = parseInt(document.getElementById('move2').style.top)+5+'px'
+    checkAll()
+}">
+
+
+ 
+
+<input type=button style="color:DarkSeaGreen; background-color: black" value="Auto Down" onClick="{ 
+   document.mySpeedY += 2
+}">
+<input type=button style="color:DarkSeaGreen; background-color: black" value="Auto up" onClick="{ 
+   document.mySpeedY += -2
+}">
+<input type=button style="color:DarkSeaGreen; background-color: black" value="Auto Right" onClick="{
+   document.mySpeedX  += 2
+}"> 
+<input type=button style="color:DarkSeaGreen; background-color: black" value="Auto Left" onClick="{
+   document.mySpeedX  += -2
+
+}"> 
+
+
+
+<input type=button style="color:DarkSeaGreen; background-color: black" value="open google" onClick="{
+window.open('https://www.google.ca/');
+}"> 
+
+
+
+<!-- ********************  General game output **************************  -->
+<div id="myInstructions"  style="visibility:visible; width: 250px;
+    height: 250px;
+    background-color: MistyRose;
+
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto" onclick="{
+    document.getElementById('myInstructions').style.visibility = 'hidden'}
+">
+<ol>Instructions here:
+<li>You are the spaceship.
+<li>Use Space bar to shoot the UFOs.
+<li>When you get hit by the UFOs the game will reload and that means you lost.
+<li>Once your score gets too 10 you will of won, where you will be automatically redirected too level 2.
+</ol>
+Click to hide.
+</div><br>
+
+
+<div id="myShowDiv5" style="width:300px; background-color:MistyRose; font-size:25px">Score</div>
+<div id="myShowDiv4" style="width:300px; background-color:MistyRose; font-size:50px">0</div>
+
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br>
+<input type="button" value="Back" style="color:DarkSeaGreen; background-color: black;font-size:25px" onclick="location='https://c9-new-2017-notgingy.c9users.io/'" </input>
+
+<b><-- click to go back to index</b>
+</body>
+</html>
